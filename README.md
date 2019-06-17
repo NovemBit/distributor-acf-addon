@@ -11,13 +11,10 @@ functionality to distribute 'Advanced Custom Fields', specifically terms, users,
 
 ## Install
 
-Download the plug-in from our [github repository](https://github.com/NovemBit/distributor-acf-addon). 
+At this moment, Distributor ACF add-on is not yet compatible with original [Distributor](https://github.com/10up/distributor), therefore, please use our  [Distributor fork](https://github.com/NovemBit/distributor) or apply [this patch](https://github.com/10up/distributor/pull/411) on original plugin.
 
-You can upload and install the archived (zip) plugin via the WordPress dashboard (Plugins > Add New -> Upload Plugin) 
-or manually inside of the `wp-content/plugins` directory, and activate on the Plugins dashboard.
+Once you have Distributor instlled, [download the latest master build](https://github.com/NovemBit/distributor-acf-addon/archive/master.zip) and install on your website.
 
 ## Plugin Usage
 
-It's recommended to use the [plug-in fork](https://github.com/NovemBit/distributor) as it's not yet compatible with the 
-original plug-in, since the Distributor plug-in modifications to hook up the add-on are not implemented yet on the 
-original plug-in.
+You just need to have Distributor ACF add-on installed on both sides, no additional configuration needed. Please note that this addon was tested for single-site instalation with external connections.
