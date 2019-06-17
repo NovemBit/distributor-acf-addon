@@ -5,7 +5,7 @@
  * Version:           1.0.0
  * Author:            Novembit
  * License:           GPLv2 or later
- * Text Domain:       distributor
+ * Text Domain:       distributor-acf
  */
 
 /* Bail out if the "parent" plug-in insn't active */
