@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Distributor Extended
+ * Plugin Name:       Distributor ACF Add-on
  * Description:       An add-on for the "Distributor" plug-in to manage ACF distribution
  * Version:           1.0.0
  * Author:            Novembit
