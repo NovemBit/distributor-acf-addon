@@ -6,5 +6,5 @@ require_once __DIR__ . '/includes/acf-spoke.php';
 
 
 /* Call the setup functions */
-\Distributor\AcfHub\setup();
-\Distributor\AcfSpoke\setup();
+\DT\NbAddon\Acf\Hub\setup();
+\DT\NbAddon\Acf\Spoke\setup();

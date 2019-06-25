@@ -5,7 +5,7 @@
  * @package Distributor
  */
 
-namespace Distributor\AcfHub;
+namespace DT\NbAddon\Acf\Hub;
 
 /**
  * Setup actions

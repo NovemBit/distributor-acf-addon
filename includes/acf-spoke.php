@@ -5,7 +5,7 @@
  * @package Distributor
  */
 
-namespace Distributor\AcfSpoke;
+namespace DT\NbAddon\Acf\Spoke;
 
 /**
  * Setup actions
