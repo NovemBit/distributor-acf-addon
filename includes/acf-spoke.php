@@ -177,7 +177,7 @@ function apply_relations_map( $relations_map, $post_id ) {
 		if ( is_array( $value ) ) {
 			$result = array();
 			foreach ( $value as $object_id ) {
-				$correct_id = \Distributor\Utils\get_post_from_original_id( $object_id );
+				$correct_id = \Distributor\Utils\get_post_id_from_original_id( $object_id );
 				if ( ! empty( $correct_id ) ) {
 					$result[] = $correct_id;
 				} else {
@@ -185,7 +185,7 @@ function apply_relations_map( $relations_map, $post_id ) {
 				}
 			}
 		} else {
-			$correct_id = \Distributor\Utils\get_post_from_original_id( $value );
+			$correct_id = \Distributor\Utils\get_post_id_from_original_id( $value );
 			if ( ! empty( $correct_id ) ) {
 				$result = $correct_id;
 			}
