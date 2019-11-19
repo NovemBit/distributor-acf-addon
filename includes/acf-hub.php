@@ -93,7 +93,7 @@ function map_acf_fields( $post_body, $post ) {
 		if ( ! empty( $gallery_map ) ) {
 			$post_body['distributor_acf_gallery_mapping'] = $gallery_map;
 		}
-
-		return $post_body;
 	}
+
+	return $post_body;
 }
