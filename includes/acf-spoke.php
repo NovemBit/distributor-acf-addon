@@ -103,8 +103,8 @@ function set_fields_map( $post, $request ) {
 	if ( isset( $request['distributor_acf_relation_mapping'] ) ) {
 		apply_relations_map( $request['distributor_acf_relation_mapping'], $post->ID );
 	}
-	if ( isset( $request['distributor_acf_gallery_mapping'] ) ) {
-		apply_galleries_map( $request['distributor_acf_gallery_mapping'], $post->ID );
+	if ( isset( $request['distributor_acf_attachments_mapping'] ) ) {
+		apply_attachments_map( $request['distributor_acf_attachments_mapping'], $post->ID );
 	}
 }
 
@@ -198,15 +198,16 @@ function apply_relations_map( $relations_map, $post_id ) {
 }
 
 /**
- * Replace gallery media ids with correct ones
+ * Replace attachment media ids with correct ones
  *
- * @param array   $gallery_map Array of gallery media ids and meta keys.
+ * @param array   $attachments_map Array of attachment media ids and meta keys.
  * @param integer $post_id Current post ID.
  */
-function apply_galleries_map( $gallery_map, $post_id ) {
+function apply_attachments_map( $attachments_map, $post_id ) {
 	global $wpdb;
 	$query = "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = 'dt_original_media_id' AND meta_value =";
-	foreach ( $gallery_map as $key => $value ) {
+
+	foreach ( $attachments_map as $key => $value ) {
 		$result = null;
 		if ( is_array( $value ) ) {
 			$result = array();
@@ -216,7 +217,7 @@ function apply_galleries_map( $gallery_map, $post_id ) {
 			}
 		} else {
 			$correct_id = $wpdb->get_var( $query . $value ); //phpcs:ignore
-			$result[]   = empty( $correct_id ) ? $value : $correct_id;
+			$result     = empty( $correct_id ) ? $value : $correct_id;
 		}
 		if ( ! empty( $result ) ) {
 			update_post_meta( $post_id, $key, $result );
