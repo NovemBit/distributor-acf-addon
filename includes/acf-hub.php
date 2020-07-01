@@ -30,11 +30,12 @@ function setup() {
  */
 function map_acf_fields( $post_body, $post ) {
 	if ( function_exists( 'get_field_object' ) ) {
-		$post_metas   = get_post_meta( $post->ID );
-		$terms_map    = array();
-		$users_map    = array();
-		$relation_map = array();
-		$gallery_map  = array();
+		$post_metas       = get_post_meta( $post->ID );
+		$terms_map        = array();
+		$users_map        = array();
+		$relation_map     = array();
+		$attachments_map  = array();
+
 		foreach ( $post_metas as $key => $values ) {
 			foreach ( $values as $value ) {
 				$value = maybe_unserialize( $value );
@@ -74,8 +75,8 @@ function map_acf_fields( $post_body, $post ) {
 							$users_map[ $key ] = $user_data;
 						} elseif ( 'relationship' === $field['type'] ) {
 							$relation_map[ $key ] = $value;
-						} elseif ( 'gallery' === $field['type'] ) {
-							$gallery_map[ $key ] = $value;
+						} elseif ( in_array( $field['type'], ['gallery', 'file', 'image'] ) ) {
+							$attachments_map[ $key ] = $value;
 						}
 					}
 				}
@@ -90,8 +91,8 @@ function map_acf_fields( $post_body, $post ) {
 		if ( ! empty( $relation_map ) ) {
 			$post_body['distributor_acf_relation_mapping'] = $relation_map;
 		}
-		if ( ! empty( $gallery_map ) ) {
-			$post_body['distributor_acf_gallery_mapping'] = $gallery_map;
+		if ( ! empty( $attachments_map ) ) {
+			$post_body['distributor_acf_attachments_mapping'] = $attachments_map;
 		}
 	}
 
