@@ -42,7 +42,7 @@ function map_acf_fields( $post_body, $post ) {
 				if ( ! empty( $value ) && array_key_exists( '_' . $key, $post_metas ) ) {
 					$field = get_field_object( $key, $post->ID );
 
-					if ( isset( $field ) ) {
+					if ( $field && is_array( $field ) ) {
 						if ( 'taxonomy' === $field['type'] ) {
 							$taxonomy = $field['taxonomy'];
 							$slug     = array(
